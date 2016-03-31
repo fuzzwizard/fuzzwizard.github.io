@@ -1,0 +1,5 @@
+#!/bin/bash
+
+minify js/main.js
+cleancss -o css/theme.min.css css/theme.css
+

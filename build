@@ -1,7 +1,0 @@
-#!/bin/bash
-
-minify js/main.js
-
-git add --all
-git commit -m "$0"
-git push origin master

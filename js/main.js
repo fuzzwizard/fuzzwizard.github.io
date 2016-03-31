@@ -1,1 +1,3 @@
-document.body.innerHTML = "Hello world!";
+$(document).ready(function() {
+
+});

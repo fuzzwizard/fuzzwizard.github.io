@@ -1,6 +1,4 @@
-#!/bin/bash
-
-./build
+@ECHO OFF
 
 git add --all
 git commit

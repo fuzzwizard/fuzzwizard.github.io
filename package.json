@@ -1,0 +1,22 @@
+{
+  "name": "mitchsmall.io",
+  "version": "0.0.1",
+  "description": "My portfolio site and accompanying tools.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fuzzwizard/fuzzwizard.github.io.git"
+  },
+  "author": "Mitch Small <mitchsmall4@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fuzzwizard/fuzzwizard.github.io/issues"
+  },
+  "homepage": "https://github.com/fuzzwizard/fuzzwizard.github.io#readme",
+  "dependencies": {
+    "gulp": "^3.9.1"
+  }
+}

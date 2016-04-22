@@ -15,7 +15,7 @@ const paths = {
   less: './src/less/*.less'
 }
 
-gulp.task('default', ['js', 'css', 'watch', 'webserver']);
+gulp.task('default', ['js', 'css', 'watch', 'server']);
 
 gulp.task('js', () => {
   return gulp.src(paths.js)
@@ -49,7 +49,7 @@ gulp.task('watch', () => {
 });
 
 
-gulp.task('webserver', () => {
+gulp.task('server', () => {
   gulp.src('.')
       .pipe(webserver({
         livereload: true,
@@ -64,7 +64,7 @@ gulp.task('deploy', () => {
       .pipe(git.add({args: " --all"}))
       .pipe(git.commit('Deployed on ' + Date()));
 
-  git.push('origin', 'master', {args: ""}, (err) => {
+  git.push('origin', 'master', {args: " -f"}, (err) => {
     if (err) throw err;
   });
 });

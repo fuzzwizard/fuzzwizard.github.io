@@ -71,7 +71,7 @@ gulp.task('server', () => {
 });
 
 gulp.task('deploy', () => {
-  gulp.src('./')
+  gulp.src('.')
     .pipe(git.add({args: " --all"}))
     .pipe(git.commit('Deployed on ' + Date()));
 

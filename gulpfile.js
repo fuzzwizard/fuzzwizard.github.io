@@ -10,16 +10,21 @@ const babel     = require('gulp-babel');
 const uglify    = require('gulp-uglify');
 const webserver = require('gulp-webserver');
 const git       = require('gulp-git');
+const plumber   = require('gulp-plumber');
 
 const paths = {
   js:   './src/js/*.js',
   less: './src/less/*.less'
 }
 
-gulp.task('default', ['js', 'css', 'watch', 'server']);
-
 gulp.task('js', () => {
   return gulp.src(paths.js)
+           .pipe(plumber({
+             errorHandler: (err) => {
+               console.log(err);
+               this.emit('end');
+             }
+           }))
            .pipe(concat('app.js'))
            .pipe(gulp.dest('./js/'))
            .pipe(babel({
@@ -34,6 +39,12 @@ gulp.task('js', () => {
 
 gulp.task('css', () => {
   return gulp.src(paths.less)
+           .pipe(plumber({
+             errorHandler: (err) => {
+               console.log(err);
+               this.emit('end');
+             }
+           }))
            .pipe(less())
            .pipe(rename("style.css"))
            .pipe(gulp.dest('./css/'))
@@ -42,12 +53,11 @@ gulp.task('css', () => {
              suffix: '.min'
            }))
            .pipe(gulp.dest('./css/'));
-
 });
 
 gulp.task('watch', () => {
   gulp.watch(paths.js, ['js']);
-  gulp.watch(paths.less, ['js']);
+  gulp.watch('./src/less/includes/**/*.less', ['css']);
 });
 
 gulp.task('server', () => {
@@ -62,10 +72,12 @@ gulp.task('server', () => {
 
 gulp.task('deploy', () => {
   gulp.src('./')
-      .pipe(git.add({args: " --all"}))
-      .pipe(git.commit('Deployed on ' + Date()));
+    .pipe(git.add({args: " --all"}))
+    .pipe(git.commit('Deployed on ' + Date()));
 
   git.push('origin', 'master', {args: " -f"}, (err) => {
     if (err) throw err;
   });
 });
+
+gulp.task('default', ['js', 'css', 'watch', 'server']);

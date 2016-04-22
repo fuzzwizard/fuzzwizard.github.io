@@ -9,7 +9,6 @@ const uglify    = require('gulp-uglify');
 const webserver = require('gulp-webserver');
 const git       = require('gulp-git');
 
-
 const paths = {
   js:   './src/js/*.js',
   less: './src/less/*.less'
@@ -19,27 +18,28 @@ gulp.task('default', ['js', 'css', 'watch', 'server']);
 
 gulp.task('js', () => {
   return gulp.src(paths.js)
-             .pipe(concat('app.js'))
-             .pipe(gulp.dest('./js/'))
-             .pipe(babel({
-               presets: ['es2015']
-             }))
-             .pipe(uglify())
-             .pipe(rename({
-               suffix: '.min'
-             }))
-             .pipe(gulp.dest('./js/'));
+           .pipe(concat('app.js'))
+           .pipe(gulp.dest('./js/'))
+           .pipe(babel({
+             presets: ['es2015']
+           }))
+           .pipe(uglify())
+           .pipe(rename({
+             suffix: '.min'
+           }))
+           .pipe(gulp.dest('./js/'));
 });
 
 gulp.task('css', () => {
   return gulp.src(paths.less)
-             .pipe(less())
-             .pipe(gulp.dest('./css/'))
-             .pipe(cssmin())
-             .pipe(rename({
-               suffix: '.min'
-             }))
-             .pipe(gulp.dest('./css/'));
+           .pipe(less())
+           .pipe(rename("style.css"))
+           .pipe(gulp.dest('./css/'))
+           .pipe(cssmin())
+           .pipe(rename({
+             suffix: '.min'
+           }))
+           .pipe(gulp.dest('./css/'));
 
 });
 
@@ -48,15 +48,14 @@ gulp.task('watch', () => {
   gulp.watch(paths.less, ['js']);
 });
 
-
 gulp.task('server', () => {
   gulp.src('.')
-      .pipe(webserver({
-        livereload: true,
-        open: true,
-        port: 3030,
-        fallback: 'index.html'
-      }));
+    .pipe(webserver({
+      livereload: true,
+      open: true,
+      port: 3030,
+      fallback: 'index.html'
+    }));
 });
 
 gulp.task('deploy', () => {

@@ -9,6 +9,7 @@ const uglify    = require('gulp-uglify');
 const webserver = require('gulp-webserver');
 const git       = require('gulp-git');
 
+
 const paths = {
   js:   './src/js/*.js',
   less: './src/less/*.less'
@@ -61,7 +62,7 @@ gulp.task('webserver', () => {
 gulp.task('deploy', () => {
   gulp.src('./')
       .pipe(git.add({args: " --all"}))
-      .pipe(git.commit('Test'));
+      .pipe(git.commit('Deployed on ' + Date()));
 
   git.push('origin', 'master', {args: ""}, (err) => {
     if (err) throw err;

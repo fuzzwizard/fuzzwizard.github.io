@@ -7,6 +7,7 @@ const less      = require('gulp-less');
 const babel     = require('gulp-babel');
 const uglify    = require('gulp-uglify');
 const webserver = require('gulp-webserver');
+const git       = require('gulp-git');
 
 const paths = {
   js:   './src/js/*.js',
@@ -55,4 +56,14 @@ gulp.task('webserver', () => {
         port: 3030,
         fallback: 'index.html'
       }));
+});
+
+gulp.task('deploy', () => {
+  gulp.src('./')
+      .pipe(git.add({args: " --all"}))
+      .pipe(git.commit('Test'));
+
+  git.push('origin', 'master', {args: ""}, (err) => {
+    if (err) throw err;
+  });
 });

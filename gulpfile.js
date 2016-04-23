@@ -11,6 +11,7 @@ const uglify    = require('gulp-uglify');
 const webserver = require('gulp-webserver');
 const git       = require('gulp-git');
 const plumber   = require('gulp-plumber');
+const prompt    = require('gulp-prompt');
 
 const paths = {
   js:   './src/js/*.js',
@@ -71,9 +72,16 @@ gulp.task('server', () => {
 });
 
 gulp.task('deploy', () => {
+  let message = "Deployed on " + Date();
   gulp.src('.')
+    .pipe(prompt.prompt({
+      type: 'input',
+      name: 'commit',
+      message: 'Please enter commit mesage: '
+    }, (res) => { message = res.commit; }
+    ))
     .pipe(git.add({args: " ."}))
-    .pipe(git.commit('Deployed on ' + Date()));
+    .pipe(git.commit(message));
 
   git.push('origin', 'master', {args: " -f"}, (err) => {
     if (err) throw err;

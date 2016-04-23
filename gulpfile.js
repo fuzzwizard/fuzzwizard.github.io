@@ -73,13 +73,14 @@ gulp.task('server', () => {
 
 gulp.task('deploy', () => {
   let message = "Deployed on " + Date();
+  prompt.prompt({
+    type: 'input',
+    name: 'commit',
+    message: 'Please enter commit mesage: '
+  }, (res) => { message = res.commit });
+
+
   gulp.src('.')
-    .pipe(prompt.prompt({
-      type: 'input',
-      name: 'commit',
-      message: 'Please enter commit mesage: '
-    }, (res) => { message = res.commit; }
-    ))
     .pipe(git.add({args: " ."}))
     .pipe(git.commit(message));
 

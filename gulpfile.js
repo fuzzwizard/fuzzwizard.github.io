@@ -72,7 +72,7 @@ gulp.task('server', () => {
 
 gulp.task('deploy', () => {
   gulp.src('.')
-    .pipe(git.add({args: " --all"}))
+    .pipe(git.add({args: " ."}))
     .pipe(git.commit('Deployed on ' + Date()));
 
   git.push('origin', 'master', {args: " -f"}, (err) => {

@@ -5,7 +5,7 @@ const gulp = require('gulp');
 const concat    = require('gulp-concat');
 const cssmin    = require('gulp-minify-css');
 const rename    = require('gulp-rename');
-const less      = require('gulp-less');
+const sass      = require('gulp-sass');
 const babel     = require('gulp-babel');
 const uglify    = require('gulp-uglify');
 const webserver = require('gulp-webserver');
@@ -15,7 +15,7 @@ const prompt    = require('gulp-prompt');
 
 const paths = {
   js:   './src/js/*.js',
-  less: './src/less/*.less'
+  sass: './src/sass/**/*.scss'
 }
 
 gulp.task('js', () => {
@@ -39,14 +39,14 @@ gulp.task('js', () => {
 });
 
 gulp.task('css', () => {
-  return gulp.src(paths.less)
+  return gulp.src(paths.sass)
            .pipe(plumber({
              errorHandler: (err) => {
                console.log(err);
                this.emit('end');
              }
            }))
-           .pipe(less())
+           .pipe(sass())
            .pipe(rename("style.css"))
            .pipe(gulp.dest('./css/'))
            .pipe(cssmin())
@@ -58,7 +58,7 @@ gulp.task('css', () => {
 
 gulp.task('watch', () => {
   gulp.watch(paths.js, ['js']);
-  gulp.watch('./src/less/includes/**/*.less', ['css']);
+  gulp.watch(paths.sass, ['css']);
 });
 
 gulp.task('server', () => {

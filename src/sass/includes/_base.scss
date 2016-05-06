@@ -7,6 +7,7 @@ h6,
 p,
 ul {
   color: $color-font;
+  -webkit-font-smoothing: antialiased;
 }
 
 a {
@@ -52,10 +53,6 @@ section {
 
   .text-frame {
     text-align: left;
-
-    h2 {
-      text-transform: uppercase;
-    }
 
     .links {
       list-style: none;

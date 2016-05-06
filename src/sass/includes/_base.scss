@@ -1,65 +1,88 @@
-h1, h2, h3, h4, h5, h6, p, ul {
-    color: $color-font;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul {
+  color: $color-font;
+  -webkit-font-smoothing: antialiased;
 }
 
 a {
-    color: $color3;
+  color: $color-link;
 
-    &:visited {
-        color: shade($color3, 22%);
-    }
+  &:visited {
+    color: $color-link-visited;
+  }
+
+  &:active,
+  &:hover {
+    color: $color-link-hover;
+  }
 }
 
 section {
-    padding: 45px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: $color-back;
+  padding: 15% 45px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: $color-back;
+  text-align: center;
+
+  .content-frame {
+    display: inline-block;
+    margin: auto;
     text-align: center;
 
     & > * {
-        display: inline-block;
+      display: inline-block;
     }
+  }
 
-    .video-frame {
-        display: block;
-        position: relative;
-        border: 4px solid $color1;
-        border-radius: 50%;
-        height: 500px;
-        width: 500px;
-        overflow: hidden;
-    }
+  .logo {
+    position: relative;
+    top: -3px;
+    z-index: 1;
+    fill: $color-font;
+    margin-right: 55px;
+  }
 
-    video {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-    }
+  .text-frame {
+    text-align: left;
 
-    .logo {
-        position: relative;
-        top: -3px;
-        z-index: 1;
-        fill: $color1;
+    .links {
+      list-style: none;
+      font-size: 18px;
+
+      a {
+        text-decoration: none;
+      }
+
+      li {
+        margin-bottom: 12px;
+      }
+
+      i {
+        padding-right: 12px;
+      }
     }
+  }
 }
 
 footer {
-    color: $color-font;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 15px;
-    text-align: center;
+  color: $color-font;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 15px;
+  text-align: center;
 }
 
 small {
-    font-size: 75%;
+  font-size: 75%;
 }

@@ -1,17 +1,27 @@
-/* Coolors Exported Palette - coolors.co/fe938c-e6b89c-ead2ac-9cafb7-4281a4 */
 * {
-  font-family: 'Lato', Helvetica, sans-serif; }
+  font-family: 'Source Sans Pro', Helvetica, sans-serif;
+  font-weight: 300; }
 
-h1, h2, h3, h4, h5, h6, p, ul {
-  color: #f4e8d5; }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul {
+  color: #f4e8d5;
+  -webkit-font-smoothing: antialiased; }
 
 a {
   color: #ead2ac; }
   a:visited {
-    color: #b7a486; }
+    color: #d3a152; }
+  a:active, a:hover {
+    color: #f4e8d5; }
 
 section {
-  padding: 45px;
+  padding: 15% 45px;
   position: absolute;
   top: 0;
   left: 0;
@@ -19,27 +29,29 @@ section {
   bottom: 0;
   background-color: #4281a4;
   text-align: center; }
-  section > * {
-    display: inline-block; }
-  section .video-frame {
-    display: block;
-    position: relative;
-    border: 4px solid #fe938c;
-    border-radius: 50%;
-    height: 500px;
-    width: 500px;
-    overflow: hidden; }
-  section video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%; }
+  section .content-frame {
+    display: inline-block;
+    margin: auto;
+    text-align: center; }
+    section .content-frame > * {
+      display: inline-block; }
   section .logo {
     position: relative;
     top: -3px;
     z-index: 1;
-    fill: #fe938c; }
+    fill: #f4e8d5;
+    margin-right: 55px; }
+  section .text-frame {
+    text-align: left; }
+    section .text-frame .links {
+      list-style: none;
+      font-size: 18px; }
+      section .text-frame .links a {
+        text-decoration: none; }
+      section .text-frame .links li {
+        margin-bottom: 12px; }
+      section .text-frame .links i {
+        padding-right: 12px; }
 
 footer {
   color: #f4e8d5;

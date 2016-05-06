@@ -1,4 +1,4 @@
-/* Coolors Exported Palette - coolors.co/fe938c-e6b89c-ead2ac-9cafb7-4281a4 */
+// Coolors Exported Palette - coolors.co/fe938c-e6b89c-ead2ac-9cafb7-4281a4
 
 $color1: #fe938c; //rgba(254, 147, 140, 100)
 $color2: #e6b89c; //rgba(230, 184, 156, 100)
@@ -6,5 +6,10 @@ $color3: #ead2ac; //rgba(234, 210, 172, 100)
 $color4: #9cafb7; //rgba(156, 175, 183, 100)
 $color5: #4281a4; //rgba(66, 129, 164, 100)
 
+
+// Computed styles
 $color-font: lighten($color3, 10%);
 $color-back: $color5;
+$color-link: $color3;
+$color-link-visited: darken($color3, 22%);
+$color-link-hover: lighten($color3, 10%);

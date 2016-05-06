@@ -8,9 +8,11 @@ a {
   color: #ead2ac; }
   a:visited {
     color: #d3a152; }
+  a:active, a:hover {
+    color: #f4e8d5; }
 
 section {
-  padding: 45px;
+  padding: 15% 45px;
   position: absolute;
   top: 0;
   left: 0;
@@ -24,7 +26,18 @@ section {
     position: relative;
     top: -3px;
     z-index: 1;
-    fill: #f4e8d5; }
+    fill: #f4e8d5;
+    margin-right: 55px; }
+  section .text-frame .links {
+    text-align: left;
+    list-style: none;
+    font-size: 18px; }
+    section .text-frame .links a {
+      text-decoration: none; }
+    section .text-frame .links li {
+      margin-bottom: 12px; }
+    section .text-frame .links i {
+      padding-right: 12px; }
 
 footer {
   color: #f4e8d5;

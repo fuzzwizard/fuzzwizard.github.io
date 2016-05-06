@@ -9,13 +9,13 @@ a {
         color: $color-link-visited;
     }
 
-    &:active {
-      color: $color-link-active;
+    &:active, &:hover {
+      color: $color-link-hover;
     }
 }
 
 section {
-    padding: 45px;
+    padding: 15% 45px;
     position: absolute;
     top: 0;
     left: 0;
@@ -33,6 +33,20 @@ section {
         top: -3px;
         z-index: 1;
         fill: $color-font;
+        margin-right: 55px;
+    }
+
+    .text-frame {
+      .links {
+        text-align: left;
+        list-style: none;
+        font-size: 18px;
+        a { text-decoration: none; }
+
+        li { margin-bottom: 12px; }
+
+        i { padding-right: 12px; }
+      }
     }
 }
 

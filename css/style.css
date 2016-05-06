@@ -1,7 +1,14 @@
 * {
   font-family: 'Source Sans Pro', Helvetica, sans-serif; }
 
-h1, h2, h3, h4, h5, h6, p, ul {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul {
   color: #f4e8d5; }
 
 a {
@@ -20,24 +27,31 @@ section {
   bottom: 0;
   background-color: #4281a4;
   text-align: center; }
-  section > * {
-    display: inline-block; }
+  section .content-frame {
+    display: inline-block;
+    margin: auto;
+    text-align: center; }
+    section .content-frame > * {
+      display: inline-block; }
   section .logo {
     position: relative;
     top: -3px;
     z-index: 1;
     fill: #f4e8d5;
     margin-right: 55px; }
-  section .text-frame .links {
-    text-align: left;
-    list-style: none;
-    font-size: 18px; }
-    section .text-frame .links a {
-      text-decoration: none; }
-    section .text-frame .links li {
-      margin-bottom: 12px; }
-    section .text-frame .links i {
-      padding-right: 12px; }
+  section .text-frame {
+    text-align: left; }
+    section .text-frame h2 {
+      text-transform: uppercase; }
+    section .text-frame .links {
+      list-style: none;
+      font-size: 18px; }
+      section .text-frame .links a {
+        text-decoration: none; }
+      section .text-frame .links li {
+        margin-bottom: 12px; }
+      section .text-frame .links i {
+        padding-right: 12px; }
 
 footer {
   color: #f4e8d5;

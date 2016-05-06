@@ -3,10 +3,14 @@ h1, h2, h3, h4, h5, h6, p, ul {
 }
 
 a {
-    color: $color3;
+    color: $color-link;
 
     &:visited {
-        color: shade($color3, 22%);
+        color: $color-link-visited;
+    }
+
+    &:active {
+      color: $color-link-active;
     }
 }
 
@@ -24,29 +28,11 @@ section {
         display: inline-block;
     }
 
-    .video-frame {
-        display: block;
-        position: relative;
-        border: 4px solid $color1;
-        border-radius: 50%;
-        height: 500px;
-        width: 500px;
-        overflow: hidden;
-    }
-
-    video {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-    }
-
     .logo {
         position: relative;
         top: -3px;
         z-index: 1;
-        fill: $color1;
+        fill: $color-font;
     }
 }
 

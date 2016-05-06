@@ -1,4 +1,3 @@
-/* Coolors Exported Palette - coolors.co/fe938c-e6b89c-ead2ac-9cafb7-4281a4 */
 * {
   font-family: 'Source Sans Pro', Helvetica, sans-serif; }
 
@@ -8,7 +7,7 @@ h1, h2, h3, h4, h5, h6, p, ul {
 a {
   color: #ead2ac; }
   a:visited {
-    color: #b7a486; }
+    color: #d3a152; }
 
 section {
   padding: 45px;
@@ -21,25 +20,11 @@ section {
   text-align: center; }
   section > * {
     display: inline-block; }
-  section .video-frame {
-    display: block;
-    position: relative;
-    border: 4px solid #fe938c;
-    border-radius: 50%;
-    height: 500px;
-    width: 500px;
-    overflow: hidden; }
-  section video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%; }
   section .logo {
     position: relative;
     top: -3px;
     z-index: 1;
-    fill: #fe938c; }
+    fill: #f4e8d5; }
 
 footer {
   color: #f4e8d5;

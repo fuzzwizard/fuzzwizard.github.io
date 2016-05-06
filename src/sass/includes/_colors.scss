@@ -10,3 +10,6 @@ $color5: #4281a4; //rgba(66, 129, 164, 100)
 // Computed styles
 $color-font: lighten($color3, 10%);
 $color-back: $color5;
+$color-link: $color3;
+$color-link-visited: darken($color3, 22%);
+$color-link-hover: lighten($color3, 10%);

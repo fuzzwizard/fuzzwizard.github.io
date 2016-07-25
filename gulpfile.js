@@ -16,7 +16,7 @@ const prompt    = require('gulp-prompt');
 const paths = {
   js:   './src/js/*.js',
   sass: './src/sass/**/*.scss'
-}
+};
 
 gulp.task('js', () => {
   return gulp.src(paths.js)

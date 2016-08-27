@@ -1,0 +1,14 @@
+{
+  "source": "./src",
+  "destination": ".",
+  "metadata": {
+    "title": "Mitch Small | JS Developer",
+    "description": "Temporary."
+  },
+  "plugins": {
+    "metalsmith-pug": { 
+      "pretty": false,
+      "useMetadata": true,
+    },
+  },
+}

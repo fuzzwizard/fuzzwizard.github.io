@@ -76,7 +76,7 @@ gulp.task('deploy', () => {
   prompt.prompt({
     type: 'input',
     name: 'commit',
-    message: 'Please enter commit mesage: '
+    message: 'Please enter commit message: '
   }, (res) => { message = res.commit });
 
 

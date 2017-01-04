@@ -20,40 +20,40 @@ const paths = {
 
 gulp.task('js', () => {
   return gulp.src(paths.js)
-           .pipe(plumber({
-             errorHandler: (err) => {
-               console.log(err);
-               this.emit('end');
-             }
-           }))
-           .pipe(concat('app.js'))
-           .pipe(gulp.dest('./js/'))
-           .pipe(babel({
-             presets: ['es2015']
-           }))
-           .pipe(uglify())
-           .pipe(rename({
-             suffix: '.min'
-           }))
-           .pipe(gulp.dest('./js/'));
+    .pipe(plumber({
+      errorHandler: (err) => {
+        console.log(err);
+        this.emit('end');
+      }
+    }))
+    .pipe(concat('app.js'))
+    .pipe(gulp.dest('./js/'))
+    .pipe(babel({
+      presets: ['es2015']
+    }))
+    .pipe(uglify())
+    .pipe(rename({
+      suffix: '.min'
+    }))
+    .pipe(gulp.dest('./js/'));
 });
 
 gulp.task('css', () => {
   return gulp.src(paths.sass)
-           .pipe(plumber({
-             errorHandler: (err) => {
-               console.log(err);
-               this.emit('end');
-             }
-           }))
-           .pipe(sass())
-           .pipe(rename("style.css"))
-           .pipe(gulp.dest('./css/'))
-           .pipe(cssmin())
-           .pipe(rename({
-             suffix: '.min'
-           }))
-           .pipe(gulp.dest('./css/'));
+    .pipe(plumber({
+      errorHandler: (err) => {
+        console.log(err);
+        this.emit('end');
+      }
+    }))
+    .pipe(sass())
+    .pipe(rename("style.css"))
+    .pipe(gulp.dest('./css/'))
+    .pipe(cssmin())
+    .pipe(rename({
+      suffix: '.min'
+    }))
+    .pipe(gulp.dest('./css/'));
 });
 
 gulp.task('watch', () => {
@@ -69,24 +69,6 @@ gulp.task('server', () => {
       port: 3030,
       fallback: 'index.html'
     }));
-});
-
-gulp.task('deploy', () => {
-  let message = "Deployed on " + Date();
-  prompt.prompt({
-    type: 'input',
-    name: 'commit',
-    message: 'Please enter commit message: '
-  }, (res) => { message = res.commit });
-
-
-  gulp.src('.')
-    .pipe(git.add({args: " ."}))
-    .pipe(git.commit(message));
-
-  git.push('origin', 'master', {args: " -f"}, (err) => {
-    if (err) throw err;
-  });
 });
 
 gulp.task('default', ['js', 'css', 'watch', 'server']);
